@@ -2,13 +2,17 @@ package com.stuartkellaway.starlingbankchallenge.dao;
 
 import com.stuartkellaway.starlingbankchallenge.config.UserConfiguration;
 import com.stuartkellaway.starlingbankchallenge.entities.FeedItems;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 @Component
@@ -21,6 +25,7 @@ public class TransactionDaoImpl implements TransactionDao {
     private HttpHeaders headers;
     private HttpEntity request;
 
+    @Autowired
     public TransactionDaoImpl(final UserConfiguration userConfiguration, RestTemplateBuilder builder) {
         this.userConfiguration = userConfiguration;
         this.restTemplate = builder.build();
@@ -34,7 +39,9 @@ public class TransactionDaoImpl implements TransactionDao {
     }
 
     @Override
-    public ResponseEntity<FeedItems> getTransactions() {
-        return null;
+    public ResponseEntity<FeedItems> getTransactions(final UUID accountUUID, final UUID categoryUUID, final Date changesSince) {
+        return restTemplate.exchange(userConfiguration.getBaseApiUrl() + "feed/account/" + accountUUID
+                        + "/category/" + categoryUUID + "?changesSince=" + changesSince.toInstant(),
+                HttpMethod.GET, request, FeedItems.class);
     }
 }
