@@ -70,4 +70,11 @@ public class SavingsGoalServiceImpl implements SavingsGoalService {
 
         log.info("New Savings Goal created successfully");
     }
+
+    @Override
+    public TopUpRequest createTopUpRequest(final Integer amount) {
+        CurrencyAndAmount currencyAndAmount = new CurrencyAndAmount(userConfiguration.getDefaultCurrency(),
+                amount);
+        return new TopUpRequest(currencyAndAmount);
+    }
 }

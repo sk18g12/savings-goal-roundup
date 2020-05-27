@@ -12,5 +12,6 @@ public interface SavingsGoalService {
 
     void createSavingsGoal(final Account account);
 
+    TopUpRequest createTopUpRequest(final Integer amount);
 
 }

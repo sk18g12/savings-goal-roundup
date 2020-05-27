@@ -1,5 +1,6 @@
 package com.stuartkellaway.starlingbankchallenge.services;
 
+import com.stuartkellaway.starlingbankchallenge.config.UserConfiguration;
 import com.stuartkellaway.starlingbankchallenge.dao.TransactionDao;
 import com.stuartkellaway.starlingbankchallenge.entities.Account;
 import com.stuartkellaway.starlingbankchallenge.entities.CurrencyAndAmount;
@@ -18,11 +19,15 @@ import java.util.Date;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 public class TransactionServiceTest {
 
     @Mock
     private TransactionDao transactionsDao;
+
+    @Mock
+    private UserConfiguration userConfiguration;
 
     @InjectMocks
     private TransactionServiceImpl transactionsService;
@@ -32,6 +37,7 @@ public class TransactionServiceTest {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+        when(userConfiguration.getDefaultNumberOfTransactionDays()).thenReturn("7");
     }
 
 
@@ -43,7 +49,7 @@ public class TransactionServiceTest {
         FeedItem[] feedItemsArray = {feedItem};
         FeedItems feedItems = new FeedItems(feedItemsArray);
         ResponseEntity<FeedItems> feedItemsResponseEntity = new ResponseEntity<>(feedItems, HttpStatus.OK);
-        Mockito.when(transactionsDao.getTransactions(any(UUID.class), any(UUID.class), any(Date.class))).thenReturn(feedItemsResponseEntity);
+        when(transactionsDao.getTransactions(any(UUID.class), any(UUID.class), any(Date.class))).thenReturn(feedItemsResponseEntity);
 
         transactionsService.getLastWeeksTransactions(account);
 

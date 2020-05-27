@@ -32,9 +32,6 @@ public class RoundUpController {
     @GetMapping(value = "/roundUp")
     public ResponseEntity<SavingsGoal> roundUp(@RequestParam(value = "access_token", required = false) final String access_token) {
         log.info("Request received to start Round-Up");
-        if (access_token != null) {
-            userConfiguration.setAccessToken(access_token);
-        }
         return new ResponseEntity<>(roundUpService.roundUpLastWeeksTransactions(), HttpStatus.OK);
     }
 

@@ -26,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account getCustomerAccount() {
-        log.info("Fetching Customer Account...");
+        log.info("Fetching Customer Accounts...");
         ResponseEntity<Accounts> responseEntity = accountDao.getCustomerAccounts();
 
         // WARNING: These variables below could be null - checks need in future work

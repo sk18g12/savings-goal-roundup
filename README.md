@@ -21,3 +21,8 @@ Technical Challenge set by Starling Bank to Round-Up transactions for a given we
 * Only GBP Account used
 * Only "OUT" direction transactions used
 * You can only have one account of each currency
+
+#### Future Work
+
+* Fetch Customer Details for greetings - e.g. Name
+* More options to filter transactions - e.g. Contactless payments only
