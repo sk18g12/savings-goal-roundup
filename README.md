@@ -6,7 +6,8 @@ For a customer, take all the transactions in a given week and round them up to t
 #### Quick Start
 
 * Checkout this project
-* Provide your own access token from https://developer.starlingbank.com/sandbox/. Change `ACCESS_TOKEN` in `src/main/resources/application.properties`
+* Get your own access token from https://developer.starlingbank.com/sandbox/
+* Change `ACCESS_TOKEN` in `src/main/resources/application.properties`
 * Run Maven Build - `mvn clean install`
 * Start Spring Boot Application 
 `mvn spring-boot:run`
