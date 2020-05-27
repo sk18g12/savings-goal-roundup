@@ -20,4 +20,4 @@ Technical Challenge set by Starling Bank to Round-Up transactions for a given we
 
 * Only GBP Account used
 * Only "OUT" direction transactions used
-* 
+* You can only have one account of each currency

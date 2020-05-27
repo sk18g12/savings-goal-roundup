@@ -1,5 +1,6 @@
 package com.stuartkellaway.starlingbankchallenge.services;
 
+import com.stuartkellaway.starlingbankchallenge.entities.Account;
 import com.stuartkellaway.starlingbankchallenge.entities.SavingsGoal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,11 @@ public class RoundUpServiceImpl implements RoundUpService {
         this.transactionService = transactionService;
     }
 
+    @Override
     public SavingsGoal roundUpLastWeeksTransactions() {
-        return null;
+        Account customerAccount = accountService.getCustomerAccount();
+        SavingsGoal customerSavingsGoal = savingsGoalService.getSavingsGoal(customerAccount);
+
+        return customerSavingsGoal;
     }
 }
