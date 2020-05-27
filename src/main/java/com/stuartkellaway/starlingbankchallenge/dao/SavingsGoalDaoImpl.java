@@ -41,6 +41,7 @@ public class SavingsGoalDaoImpl implements SavingsGoalDao {
                                                               final UUID savingsGoalUUID,
                                                               final UUID transferUUID,
                                                               final TopUpRequest topUpRequest) {
+        log.info("Making request to add funds to the Savings Goal via the Starling Bank API");
         request = new HttpEntity(topUpRequest, headers);
         return restTemplate.exchange(userConfiguration.getBaseApiUrl() + "account/" + accountUUID
                 + "/savings-goals/" + savingsGoalUUID + "/add-money/" + transferUUID, HttpMethod.PUT, request, TopUpRequest.class);
@@ -49,6 +50,7 @@ public class SavingsGoalDaoImpl implements SavingsGoalDao {
     @Override
     public ResponseEntity<SavingsGoalRequest> createSavingsGoal(final UUID accountUUID,
                                                                 final SavingsGoalRequest savingsGoalRequest) {
+        log.info("Making request to create a new Savings Goal via the Starling Bank API");
         request = new HttpEntity(savingsGoalRequest, headers);
         return restTemplate.exchange(userConfiguration.getBaseApiUrl() + "account/" + accountUUID
                 + "/savings-goals", HttpMethod.PUT, request, SavingsGoalRequest.class);
@@ -56,6 +58,7 @@ public class SavingsGoalDaoImpl implements SavingsGoalDao {
 
     @Override
     public ResponseEntity<SavingsGoals> getSavingsGoals(final UUID accountUUID) {
+        log.info("Fetching all Savings Goals associated with the customers account");
         request = new HttpEntity(headers);
         return restTemplate.exchange(userConfiguration.getBaseApiUrl() + "account/" + accountUUID
                 + "/savings-goals", HttpMethod.GET, request, SavingsGoals.class);

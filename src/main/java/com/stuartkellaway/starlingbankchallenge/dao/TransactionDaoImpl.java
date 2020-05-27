@@ -40,6 +40,7 @@ public class TransactionDaoImpl implements TransactionDao {
 
     @Override
     public ResponseEntity<FeedItems> getTransactions(final UUID accountUUID, final UUID categoryUUID, final Date changesSince) {
+        log.info("Fetching Customer Transactions from the Starling Bank API");
         return restTemplate.exchange(userConfiguration.getBaseApiUrl() + "feed/account/" + accountUUID
                         + "/category/" + categoryUUID + "?changesSince=" + changesSince.toInstant(),
                 HttpMethod.GET, request, FeedItems.class);

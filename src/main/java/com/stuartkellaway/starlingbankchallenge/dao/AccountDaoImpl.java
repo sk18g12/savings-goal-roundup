@@ -39,6 +39,7 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public ResponseEntity<Accounts> getCustomerAccounts() {
+        log.info("Fetching Customer Accounts from the Starling Bank API");
         return restTemplate.exchange(userConfiguration.getBaseApiUrl() + "accounts",
                 HttpMethod.GET, request, Accounts.class);
     }
