@@ -4,7 +4,9 @@ import com.stuartkellaway.starlingbankchallenge.entities.SavingsGoalRequest;
 import com.stuartkellaway.starlingbankchallenge.entities.SavingsGoals;
 import com.stuartkellaway.starlingbankchallenge.entities.TopUpRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SavingsGoalDaoImpl implements SavingsGoalDao {
     @Override
     public ResponseEntity<SavingsGoals> getSavingsGoals() {

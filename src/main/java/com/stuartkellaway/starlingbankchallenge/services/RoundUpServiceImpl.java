@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.logging.Logger;
 
 @Service
-public class RoundUpServiceImpl {
+public class RoundUpServiceImpl implements RoundUpService {
 
     private static Logger log = Logger.getLogger(RoundUpServiceImpl.class.getName());
 
