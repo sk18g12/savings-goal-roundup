@@ -13,6 +13,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Account dao.
+ */
 @Component
 public class AccountDaoImpl implements AccountDao {
 
@@ -23,6 +26,12 @@ public class AccountDaoImpl implements AccountDao {
     private HttpHeaders headers;
     private HttpEntity request;
 
+    /**
+     * Instantiates a new Account dao.
+     *
+     * @param userConfiguration the user configuration
+     * @param builder           the builder
+     */
     @Autowired
     public AccountDaoImpl(final UserConfiguration userConfiguration, final RestTemplateBuilder builder) {
         this.userConfiguration = userConfiguration;

@@ -27,6 +27,9 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+/**
+ * The type Transaction dao test.
+ */
 @ExtendWith(value = MockitoExtension.class)
 public class TransactionDaoTest {
 
@@ -40,24 +43,42 @@ public class TransactionDaoTest {
     private static final ResponseEntity<FeedItems> MOCK_200_RESPONSE = new ResponseEntity<>(TEST_FEED_ITEMS, HttpStatus.OK);
     private static final ResponseEntity<FeedItems> MOCK_400_RESPONSE = new ResponseEntity<>(TEST_FEED_ITEMS, HttpStatus.BAD_REQUEST);
 
+    /**
+     * The Rest template.
+     */
     @Mock
     RestTemplate restTemplate;
 
+    /**
+     * The User configuration.
+     */
     @Mock
     UserConfiguration userConfiguration;
 
+    /**
+     * The Rest template builder.
+     */
     @Mock
     RestTemplateBuilder restTemplateBuilder;
 
+    /**
+     * The Transaction dao.
+     */
     @InjectMocks
     TransactionDaoImpl transactionDao;
 
+    /**
+     * Sets up.
+     */
     @BeforeEach
     public void setUp() {
         transactionDao = new TransactionDaoImpl(userConfiguration, restTemplateBuilder);
         MockitoAnnotations.initMocks(this);
     }
 
+    /**
+     * Test get transactions.
+     */
     @Test
     public void testGetTransactions() {
         Mockito.lenient().when(restTemplateBuilder.build()).thenReturn(restTemplate);
@@ -73,6 +94,9 @@ public class TransactionDaoTest {
         Assertions.assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
+    /**
+     * Test get transactions when api call fails.
+     */
     @Test
     public void testGetTransactions_whenAPICallFails() {
         Mockito.lenient().when(restTemplateBuilder.build()).thenReturn(restTemplate);

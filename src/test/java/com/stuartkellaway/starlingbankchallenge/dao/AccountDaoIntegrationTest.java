@@ -2,13 +2,14 @@ package com.stuartkellaway.starlingbankchallenge.dao;
 
 import com.stuartkellaway.starlingbankchallenge.entities.Accounts;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-// @Disabled
+@Disabled // Access token will expire so disabling test. Remove this annotation to run integration tests.
 @SpringBootTest
 public class AccountDaoIntegrationTest {
 

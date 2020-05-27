@@ -16,6 +16,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.UUID;
 import java.util.logging.Logger;
 
+/**
+ * The type Savings goal dao.
+ */
 @Component
 public class SavingsGoalDaoImpl implements SavingsGoalDao {
 
@@ -26,6 +29,12 @@ public class SavingsGoalDaoImpl implements SavingsGoalDao {
     private HttpHeaders headers;
     private HttpEntity request;
 
+    /**
+     * Instantiates a new Savings goal dao.
+     *
+     * @param userConfiguration the user configuration
+     * @param builder           the builder
+     */
     @Autowired
     public SavingsGoalDaoImpl(final UserConfiguration userConfiguration, final RestTemplateBuilder builder) {
         this.userConfiguration = userConfiguration;

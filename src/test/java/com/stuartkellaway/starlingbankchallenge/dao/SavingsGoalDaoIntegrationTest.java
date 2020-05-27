@@ -5,6 +5,7 @@ import com.stuartkellaway.starlingbankchallenge.entities.SavingsGoalRequest;
 import com.stuartkellaway.starlingbankchallenge.entities.SavingsGoals;
 import com.stuartkellaway.starlingbankchallenge.entities.TopUpRequest;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.UUID;
 
-// @Disabled
+@Disabled // Access token will expire so disabling test. Remove this annotation to run integration tests.
 @SpringBootTest
 public class SavingsGoalDaoIntegrationTest {
 

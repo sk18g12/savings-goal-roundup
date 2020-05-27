@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 import java.util.logging.Logger;
 
+/**
+ * The type Savings goal service.
+ */
 @Service
 public class SavingsGoalServiceImpl implements SavingsGoalService {
 
@@ -18,6 +21,12 @@ public class SavingsGoalServiceImpl implements SavingsGoalService {
     private UserConfiguration userConfiguration;
     private SavingsGoalDao savingsGoalDao;
 
+    /**
+     * Instantiates a new Savings goal service.
+     *
+     * @param userConfiguration the user configuration
+     * @param savingsGoalDao    the savings goal dao
+     */
     @Autowired
     public SavingsGoalServiceImpl(final UserConfiguration userConfiguration, final SavingsGoalDao savingsGoalDao) {
         this.userConfiguration = userConfiguration;

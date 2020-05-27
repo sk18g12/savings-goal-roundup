@@ -15,6 +15,9 @@ import java.util.Date;
 import java.util.UUID;
 import java.util.logging.Logger;
 
+/**
+ * The type Transaction dao.
+ */
 @Component
 public class TransactionDaoImpl implements TransactionDao {
 
@@ -23,8 +26,14 @@ public class TransactionDaoImpl implements TransactionDao {
     private UserConfiguration userConfiguration;
     private RestTemplate restTemplate;
     private HttpHeaders headers;
-    private HttpEntity request;
+    private HttpEntity<FeedItems> request;
 
+    /**
+     * Instantiates a new Transaction dao.
+     *
+     * @param userConfiguration the user configuration
+     * @param builder           the builder
+     */
     @Autowired
     public TransactionDaoImpl(final UserConfiguration userConfiguration, RestTemplateBuilder builder) {
         this.userConfiguration = userConfiguration;
@@ -35,7 +44,7 @@ public class TransactionDaoImpl implements TransactionDao {
         headers.add("Authorization", "Bearer " + userConfiguration.getAccessToken());
 
         // create request to be consumed by restTemplate
-        request = new HttpEntity(headers);
+        request = new HttpEntity<>(headers);
     }
 
     @Override

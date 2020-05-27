@@ -5,6 +5,11 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * UserConfiguration
+ * <p>
+ * Configuration class to provide access to the values stored in the application.properties file.
+ */
 @Configuration
 @Getter
 @Setter

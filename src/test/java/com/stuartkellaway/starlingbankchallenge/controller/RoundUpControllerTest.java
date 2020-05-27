@@ -1,6 +1,5 @@
 package com.stuartkellaway.starlingbankchallenge.controller;
 
-import com.stuartkellaway.starlingbankchallenge.config.UserConfiguration;
 import com.stuartkellaway.starlingbankchallenge.controllers.RoundUpController;
 import com.stuartkellaway.starlingbankchallenge.entities.CurrencyAndAmount;
 import com.stuartkellaway.starlingbankchallenge.entities.SavingsGoal;
@@ -31,15 +30,12 @@ public class RoundUpControllerTest {
     private MockMvc mockMvc;
 
     @Mock
-    private UserConfiguration userConfiguration;
-
-    @Mock
     private RoundUpService roundUpService;
 
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(new RoundUpController(roundUpService, userConfiguration)).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new RoundUpController(roundUpService)).build();
         when(roundUpService.roundUpLastWeeksTransactions()).thenReturn(TEST_SAVINGS_GOAL);
     }
 

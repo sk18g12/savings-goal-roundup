@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.logging.Logger;
 
+/**
+ * The type Account service.
+ */
 @Service
 public class AccountServiceImpl implements AccountService {
 
@@ -18,6 +21,12 @@ public class AccountServiceImpl implements AccountService {
     private UserConfiguration userConfiguration;
     private AccountDao accountDao;
 
+    /**
+     * Instantiates a new Account service.
+     *
+     * @param accountDao        the account dao
+     * @param userConfiguration the user configuration
+     */
     @Autowired
     public AccountServiceImpl(final AccountDao accountDao, final UserConfiguration userConfiguration) {
         this.accountDao = accountDao;

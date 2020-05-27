@@ -2,6 +2,7 @@ package com.stuartkellaway.starlingbankchallenge.dao;
 
 import com.stuartkellaway.starlingbankchallenge.entities.FeedItems;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +14,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 
-// @Disabled
+@Disabled // Access token will expire so disabling test. Remove this annotation to run integration tests.
 @SpringBootTest
 public class TransactionDaoIntegrationTest {
 

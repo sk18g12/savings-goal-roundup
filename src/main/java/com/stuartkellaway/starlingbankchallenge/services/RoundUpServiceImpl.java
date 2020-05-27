@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.logging.Logger;
 
+/**
+ * The type Round up service.
+ */
 @Service
 public class RoundUpServiceImpl implements RoundUpService {
 
@@ -20,6 +23,15 @@ public class RoundUpServiceImpl implements RoundUpService {
     private TransactionService transactionService;
     private RoundingCalculator roundingCalculator;
 
+    /**
+     * Instantiates a new Round up service.
+     *
+     * @param userConfiguration  the user configuration
+     * @param accountService     the account service
+     * @param savingsGoalService the savings goal service
+     * @param transactionService the transaction service
+     * @param roundingCalculator the rounding calculator
+     */
     @Autowired
     public RoundUpServiceImpl(final UserConfiguration userConfiguration,
                               final AccountService accountService,

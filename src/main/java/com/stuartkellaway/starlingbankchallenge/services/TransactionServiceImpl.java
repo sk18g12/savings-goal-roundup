@@ -13,6 +13,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.logging.Logger;
 
+/**
+ * The type Transaction service.
+ */
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
@@ -21,6 +24,12 @@ public class TransactionServiceImpl implements TransactionService {
     private UserConfiguration userConfiguration;
     private TransactionDao transactionDao;
 
+    /**
+     * Instantiates a new Transaction service.
+     *
+     * @param userConfiguration the user configuration
+     * @param transactionDao    the transaction dao
+     */
     @Autowired
     public TransactionServiceImpl(final UserConfiguration userConfiguration, final TransactionDao transactionDao) {
         this.userConfiguration = userConfiguration;
