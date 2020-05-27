@@ -24,4 +24,7 @@ public class UserConfiguration {
 
     @Value("${DEFAULT_TRANSACTION_DIRECTION}")
     private String defaultTransactionDirection;
+
+    @Value("${DEFAULT_NUMBER_OF_TRANSACTION_DAYS}")
+    private String defaultNumberOfTransactionDays;
 }
