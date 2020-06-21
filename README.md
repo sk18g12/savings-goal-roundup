@@ -1,5 +1,5 @@
-# Starling Bank Technical Challenge
-Technical Challenge set by Starling Bank to Round-Up transactions for a given week and adding that combined amount into a Savings Goal
+# Savings Goal Roundup
+Project to Round-Up transactions for a given week and adding that combined amount into a Savings Goal using the freely avaliable Starling Bank API
 
 For a customer, take all the transactions in a given week and round them up to the nearest pound. For example with spending of £4.35, £5.20 and £0.87, the round-up would be £1.58. This amount should then be transferred into a s​ avings goal​, helping the customer save for future adventures.
 
